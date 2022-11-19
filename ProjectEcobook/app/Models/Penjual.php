@@ -11,4 +11,14 @@ class Penjual extends Authenticatable
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function nextregister()
+    {
+        return $this->hasMany(NextRegister::class);
+    }
+    
+    public function buku()
+    {
+        return $this->hasMany(Buku::class);
+    }
 }

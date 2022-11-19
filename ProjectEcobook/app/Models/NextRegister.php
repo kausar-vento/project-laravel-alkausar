@@ -10,4 +10,9 @@ class NextRegister extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function penjual()
+    {
+        return $this->belongsTo('App\Models\Penjual', 'penjual_id');
+    }
 }

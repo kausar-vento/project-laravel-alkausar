@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Course;
+use App\Models\Buku;
 
 class UserLoginController extends Controller
 {
@@ -13,8 +13,7 @@ class UserLoginController extends Controller
     {
         if (auth()->user()->level == 2) {
             return view('user.home_user', [
-                'course' => Course::latest()->limit(3)->get(),
-                'topC' => Course::where('top_course', 'like', '%Top%')->latest()->limit(3)->get()
+                'dataB' => Buku::latest()->limit(3)->get()
             ]);   
         }
         elseif(auth()->user()->level == 3){
@@ -69,5 +68,10 @@ class UserLoginController extends Controller
         $validasiData['password'] = bcrypt($validasiData['password']);
         User::create($validasiData);
         return redirect()->route('login-user')->with('success', 'Anda Berhasil Membuat Akun, Mohon Menunggu Admin Verivikasi');
+    }
+
+    public function aboutUser()
+    {
+        return view('user.about_user');
     }
 }

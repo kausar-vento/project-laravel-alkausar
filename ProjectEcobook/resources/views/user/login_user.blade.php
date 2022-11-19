@@ -2,113 +2,86 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Login</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="{{asset('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Penjual</title>
+    <!-- Font Awesome -->
+    <link href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css')}}"
+        rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="{{asset('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')}}"
+        rel="stylesheet" />
+    <!-- MDB -->
+    <link href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css')}}" rel="stylesheet" />
 </head>
 
-<body class="bg-gradient-primary">
+<body>
+    <section class="vh-100" style="background-color: #eee;">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-    <div class="container">
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login Pembeli</p>
 
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
+                                    <form class="mx-1 mx-md-4" action="{{route('user.loginUser')}}"
+                                        method="POST">
+                                        @csrf
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block"
-                                style="background-image: url('{{asset('admin/img/doom.png')}}')"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    @if (session()->has('error'))
-                                    <div class="alert alert-warning" role="alert">
-                                        {{ session('error') }}
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="email" id="form3Example3c" name="email"
+                                                    class="form-control" value="{{old('email')}}" />
+                                                <label class="form-label" for="form3Example3c">Your Email</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" id="form3Example4c" name="password"
+                                                    class="form-control" value="{{old('password')}}" />
+                                                <label class="form-label" for="form3Example4c">Password</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                                            <a class="btn btn-success btn-lg"
+                                                href="{{url('/register-user')}}">Register</a>
+                                            <a class="btn btn-warning btn-lg" href="{{route('penjual.loginPenjual')}}">Penjual</a>
+                                        </div>
+                                    </form>
+                                    @if (session()->has('gagalLogin'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ session('gagalLogin') }}
                                     </div>
                                     @endif
                                     @if (session()->has('success'))
-                                    <div class="alert alert-warning" role="alert">
-                                        {{ session('success') }}
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Suksess</strong> {{session('success')}}
                                     </div>
                                     @endif
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>
-                                    <form class="user" action="{{route('user.loginUser')}}" method="POST">
-                                        @csrf
-                                        <div class="form-group">
-                                            <input type="email"
-                                                class="form-control form-control-user @error('email') is-invalid @enderror"
-                                                id="exampleInputEmail" name="email" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." value="{{ old('email') }}">
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
+                                </div>
+                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                        <div class="form-group">
-                                            <input type="password" name="password"
-                                                class="form-control form-control-user @error('password') is-invalid @enderror"
-                                                id="exampleInputPassword" placeholder="Password">
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>Password Anda Kurang {{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
+                                    <img src="{{asset('img/logo3.png')}}" class="img-fluid" alt="Sample image">
 
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
-                                    </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="/register-user">Create an Account!</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
-
+    </section>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
 </body>
 
 </html>

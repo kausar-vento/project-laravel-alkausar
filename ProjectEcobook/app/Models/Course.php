@@ -11,11 +11,6 @@ class Course extends Model
     
     protected $guarded = ['id'];
 
-    public function subcategory()
-    {
-        return $this->belongsTo('App\Models\Subcategory', 'id_subcategory');
-    }
-
     public function admin()
     {
         return $this->belongsTo('App\Models\Admin', 'id_admin');

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penjual;
+use App\Models\NextRegister;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VerifikasiPenjualController extends Controller
 {
@@ -46,9 +48,11 @@ class VerifikasiPenjualController extends Controller
      * @param  \App\Models\Penjual  $penjual
      * @return \Illuminate\Http\Response
      */
-    public function show(Penjual $penjual)
+    public function show($id)
     {
-        //
+        $dataPenjual = Penjual::find($id);
+        $dataVerifikasi = NextRegister::where('penjual_id', '=', $id)->first();
+        return view('admin.verifikasi.read_data_verifikasi_penjual', compact('dataPenjual', 'dataVerifikasi'));
     }
 
     /**

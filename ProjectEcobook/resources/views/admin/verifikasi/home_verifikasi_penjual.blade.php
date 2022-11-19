@@ -16,8 +16,6 @@
                     <tr>
                         <th>No</th>
                         <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Nama Toko</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -27,8 +25,6 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{$item->first_name}}</td>
-                        <td>{{$item->last_name}}</td>
-                        <td>{{$item->nama_toko}}</td>
                         @if ($item->level === 2)
                             <td><button class="btn btn-success">Verifikasi</button></td>
                         @elseif($item->level === 1)
@@ -66,6 +62,7 @@
                                     <input type="hidden" name="level" value="2">
                                     <button class="btn btn-success">Aktifkan</button>
                                 </form>
+                               <a href="{{route('admin.verifikasi.penjual.show', $item->id)}}"><input type="button" class="btn btn-primary" value="Cek Verifikasi"></a>
                             @endif
                         </td>
                     </tr>

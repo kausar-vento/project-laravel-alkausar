@@ -72,23 +72,29 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Menu:</h6>
-                            <a class="collapse-item" href="buttons.html">Tambah Buku</a>
-                            <a class="collapse-item" href="cards.html">Produk Buku Anda</a>
+                            <a class="collapse-item" href="{{route('penjual.crud.buku.create')}}">Tambah Buku</a>
+                            <a class="collapse-item" href="{{  route('penjual.crud.buku')}}">Produk Buku Anda</a>
                         </div>
                     </div>
                 </li>
-            @endif
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Edit Profile</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Edit Profile</span></a>
+                </li>
+            @elseif(Auth::guard('webpenjual')->user()->level == 1)
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Edit Profile</span></a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="/home/penjual/verifikasiPenjual">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Verifikasi</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/penjual/verifikasiPenjual">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Verifikasi</span></a>
+                </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider">

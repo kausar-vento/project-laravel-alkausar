@@ -43,23 +43,13 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kategori"
-            aria-expanded="true" aria-controls="kategori">
+        <a class="nav-link" href="/admin-category">
             <i class="fas fa-solid fa-certificate"></i>
-            <span>Categories</span>
-        </a>
-        <div id="kategori" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Menu</h6>
-                <a class="collapse-item" href="/admin-category">Category</a>
-                <a class="collapse-item" href="/admin-subcategory">Sub Category</a>
-            </div>
-        </div>
+            <span>Category Buku</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/admin/transaksi/user">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-bookmark"></i>
             <span>Laporan Transaksi</span></a>
     </li>

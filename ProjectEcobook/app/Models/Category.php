@@ -11,8 +11,8 @@ class Category extends Model
 
     protected $guarded = ['id'];
 
-    public function subcategory()
+    public function buku()
     {
-        return $this->hasMany(Subcategory::class);
+        return $this->hasMany(Buku::class);
     }
 }

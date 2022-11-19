@@ -1,128 +1,143 @@
 @extends('layouts.navbar_user')
 
 @section('navbar-user')
-
-<!-- Start Banner Hero -->
-<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class="container">
-                <div class="row p-5">
-                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="{{asset('user/img/banner1.png')}}" alt="">
-                    </div>
-                    <div class="col-lg-6 mb-0 d-flex align-items-center">
-                        <div class="text-align-left align-self-center">
-                            <h1 class="h1 text-success"><b>ECO</b>BOOK</h1>
-                            <h3 class="h2">Webiste Jual Beli Buku Bekas</h3>
-                            <p>
-                                <i>Platform</i> Jual Beli Buku Bekas Yang Berguna Bagi Para Masyarakat Yang Gemar
-                                Mengoleksi Buku - Buku Lama Ataupun Yang Sedang Mencari Buku - Buku Bekas
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="container">
-                <div class="row p-5">
-                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="{{asset('user/img/banner2.png')}}" alt="">
-                    </div>
-                    <div class="col-lg-6 mb-0 d-flex align-items-center">
-                        <div class="text-align-left">
-                            <h1 class="h1 text-success"><b>ECO</b>BOOK</h1>
-                            <h3 class="h2">Webiste Jual Beli Buku Bekas</h3>
-                            <p>
-                                <i>Platform</i> Jual Beli Buku Bekas Yang Berguna Bagi Para Masyarakat Yang Gemar
-                                Mengoleksi Buku - Buku Lama Ataupun Yang Sedang Mencari Buku - Buku Bekas
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="container">
-                <div class="row p-5">
-                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="{{asset('user/img/banner3.png')}}" alt="">
-                    </div>
-                    <div class="col-lg-6 mb-0 d-flex align-items-center">
-                        <div class="text-align-left">
-                            <h1 class="h1 text-success"><b>ECO</b>BOOK</h1>
-                            <h3 class="h2">Webiste Jual Beli Buku Bekas</h3>
-                            <p>
-                                <i>Platform</i> Jual Beli Buku Bekas Yang Berguna Bagi Para Masyarakat Yang Gemar
-                                Mengoleksi Buku - Buku Lama Ataupun Yang Sedang Mencari Buku - Buku Bekas
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel"
-        role="button" data-bs-slide="prev">
-        <i class="fas fa-chevron-left"></i>
-    </a>
-    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel"
-        role="button" data-bs-slide="next">
-        <i class="fas fa-chevron-right"></i>
-    </a>
-</div>
-<!-- End Banner Hero -->
-
-<section class="bg-light">
-    <div class="container py-3">
-        <div class="row text-center py-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Top Buku Terlaris</h1>
-            </div>
-        </div>
-        @if ($topC->isEmpty())
+<!-- product section -->
+<div class="product-section mt-150 mb-150">
+    <div class="container">
         <div class="row">
-            <center>
-                <h1>KOSONG</h1>
-            </center>
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3><span class="orange-text">Our</span> New Products</h3>
+                </div>
+            </div>
         </div>
-        @else
+
         <div class="row">
-            @foreach ($topC as $item)
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card h-100">
-                    <a href="{{route('user.readMore', $item->id)}}">
-                        <img src="{{asset('user/img/feature_prod_03.jpg')}}" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                            </li>
-                            <li class="text-muted text-right">Rp <b>{{$item->harga_langganan}}</b></li>
-                        </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">{{$item->judul_course}}</a>
-                        <p class="card-text">
-                            Klik Gambar Untuk Info Kelas Lebih Lanjut
-                        </p>
+            @foreach ($dataB as $item)
+            <div class="col-lg-4 col-md-6 text-center">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{route('user.getProductBuku', $item->id)}}"><img src="{{asset('user/assets/img/products/product-img-1.jpg')}}"
+                                alt=""></a>
                     </div>
+                    <h3>{{$item->nama_buku}}</h3>
+                    <p class="product-price">@currency($item->harga_buku)</p>
+                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
             @endforeach
         </div>
-        @endif
     </div>
+</div>
+<!-- testimonail-section -->
+<div class="testimonail-section mt-80 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="testimonial-sliders">
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="{{asset('user/assets/img/avaters/avatar2.png')}}" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>Al kausar Ramadhan<span>Programmer</span></h3>
+                            <p class="testimonial-body">
+                                " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto beatae
+                                vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus
+                                error sit voluptatem accusantium "
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="{{asset('user/assets/img/avaters/avatar1.png')}}" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>Raihan Hidayatullah<span>Designer</span></h3>
+                            <p class="testimonial-body">
+                                " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto beatae
+                                vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus
+                                error sit voluptatem accusantium "
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="{{asset('user/assets/img/avaters/avatar3.png')}}" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>Satria Alief<span>Tester</span></h3>
+                            <p class="testimonial-body">
+                                " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto beatae
+                                vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus
+                                error sit voluptatem accusantium "
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end testimonail-section -->
 
-</section>
+<!-- advertisement section -->
+<div class="abt-section mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="abt-bg">
+                    <a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i
+                            class="fas fa-play"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="abt-text">
+                    <p class="top-sub">Sejak Tahun 2022</p>
+                    <h2>KITA <span class="orange-text">ECOBOOK</span></h2>
+                    <p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel
+                        nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed,
+                        interdum velit. Nam eu molestie lorem.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat
+                        veritatis minus, et labore minima mollitia qui ducimus.</p>
+                    <a href="about.html" class="boxed-btn mt-4">know more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- copyright -->
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>, All Rights
+                    Reserved.<br>
+                    Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-right col-md-12">
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
