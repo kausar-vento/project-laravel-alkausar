@@ -10,6 +10,7 @@ use App\Http\Controllers\ProdukBukuController;
 use App\Http\Controllers\PenjualLoginController;
 use App\Http\Controllers\NextRegisterPenjualController;
 use App\Http\Controllers\CrudBukuController;
+use App\Http\Controllers\LatihanPaymentController;
 use App\Models\Buku;
 use App\Models\Penjual;
 use App\Models\Category;
@@ -37,6 +38,11 @@ Route::get('/', function () {
         'cUser' => $total
     ]);
 });
+
+Route::get('/latihan/form',[LatihanPaymentController::class, 'indexForm']);
+Route::get('/latihan/home',[LatihanPaymentController::class, 'index']);
+Route::post('/latihan/home',[LatihanPaymentController::class, 'indexPost']);
+Route::get('/latihan/test/lagi',[LatihanPaymentController::class, 'testAgain']);
 
 // Admin
 Route::get('/home/admin', [AdminLoginController::class, 'home'])->name('admin.homeAdmin')->middleware('auth:webadmin');
@@ -72,6 +78,7 @@ Route::get('/register-user', [UserLoginController::class, 'homeRegister']);
 Route::post('/register-user', [UserLoginController::class, 'prosesRegister'])->name('user.registerUser'); 
 Route::get('/home/user/product/buku/{id}', [ProdukBukuController::class, 'getBuku'])->name('user.getProductBuku')->middleware('auth');
 Route::get('/home/user/product/allBuku', [ProdukBukuController::class, 'productAll'])->name('user.getAllBuku')->middleware('auth');
+Route::get('/home/user/keranjang', [ProdukBukuController::class, 'test'])->name('user.keranjangUser')->middleware('auth');
 
 // Penjual
 Route::get('/home/penjual', [PenjualLoginController::class, 'homePenjual'])->name('penjual.indexPenjual')->middleware('auth:webpenjual');

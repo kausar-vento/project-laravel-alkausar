@@ -66,7 +66,8 @@
                                         href="{{url('/home/user/about')}}">About</a></li>
                                 <li class="{{ Request::is('home/user/product/*') ? 'current-list-item ' : ''}}"><a
                                         href="{{route('user.getAllBuku')}}">Produk Lainya</a></li>
-                                <li><a href="shop.html">Keranjang Anda</a></li>
+                                <li class="{{ Request::is('home/user/keranjang', 'home/user/keranjang/*') ? 'current-list-item ' : ''}}"><a 
+                                    href="{{route('user.keranjangUser')}}">Keranjang Anda</a></li>
                                 <li><a href="shop.html">Histori Belanja</a></li>
                                 <li>
                                     <div class="header-icons">
