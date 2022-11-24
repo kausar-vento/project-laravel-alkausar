@@ -45,8 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function transaksi()
+    public function keranjang()
     {
-        return $this->hasMany(Transaksi::class);
+        return $this->hasMany(Keranjang::class);
     }
 }

@@ -541,6 +541,7 @@ class ComposerStaticInit9b59c27fd3bf31aba9bf08227f5d243b
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Buku' => __DIR__ . '/../..' . '/app/Models/Buku.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'App\\Models\\Keranjang' => __DIR__ . '/../..' . '/app/Models/Keranjang.php',
         'App\\Models\\Latihan' => __DIR__ . '/../..' . '/app/Models/Latihan.php',
         'App\\Models\\NextRegister' => __DIR__ . '/../..' . '/app/Models/NextRegister.php',
         'App\\Models\\Penjual' => __DIR__ . '/../..' . '/app/Models/Penjual.php',

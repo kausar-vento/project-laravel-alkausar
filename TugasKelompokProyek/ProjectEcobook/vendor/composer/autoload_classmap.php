@@ -31,6 +31,7 @@ return array(
     'App\\Models\\Admin' => $baseDir . '/app/Models/Admin.php',
     'App\\Models\\Buku' => $baseDir . '/app/Models/Buku.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
+    'App\\Models\\Keranjang' => $baseDir . '/app/Models/Keranjang.php',
     'App\\Models\\Latihan' => $baseDir . '/app/Models/Latihan.php',
     'App\\Models\\NextRegister' => $baseDir . '/app/Models/NextRegister.php',
     'App\\Models\\Penjual' => $baseDir . '/app/Models/Penjual.php',

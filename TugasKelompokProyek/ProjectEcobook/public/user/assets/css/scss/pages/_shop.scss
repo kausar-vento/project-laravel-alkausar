@@ -78,6 +78,17 @@ a.cart-btn {
     margin-right: 5px;
   }
 }
+button.cart-btn {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  background-color: $primary-color;
+  color: #fff;
+  padding: 10px 20px;
+
+  i {
+    margin-right: 5px;
+  }
+}
 
 .single-product-img img {
   border-radius: 5px;
@@ -120,6 +131,9 @@ input[type="number"] {
 }
 
 .single-product-form a.cart-btn {
+  margin-bottom: 15px;
+}
+.single-product-form button.cart-btn {
   margin-bottom: 15px;
 }
 

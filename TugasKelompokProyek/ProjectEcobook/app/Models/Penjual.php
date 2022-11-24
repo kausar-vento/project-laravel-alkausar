@@ -21,4 +21,9 @@ class Penjual extends Authenticatable
     {
         return $this->hasMany(Buku::class);
     }
+
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class);
+    }
 }

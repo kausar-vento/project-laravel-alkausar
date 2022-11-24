@@ -20,4 +20,9 @@ class Buku extends Model
     {
         return $this->belongsTo('App\Models\Category', 'id_category');
     }
+
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class);
+    }
 }

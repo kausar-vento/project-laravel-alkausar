@@ -2,6 +2,27 @@
 
 @section('navbar-user')
 
+@if ($errors->any())
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="alert alert-danger alert-dismissible fade show justify-content-center" role="alert">
+                    <strong>Gagal</strong>Ada Beberapa Kesalahan
+                    @foreach ($errors->all() as $err)
+                        <li>
+                            {{$err}}
+                        </li>
+                    @endforeach
+                    <p></p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endif
+
+<form action="{{route('store.keranjang')}}" method="POST">
+    @csrf
     <div class="single-product mt-150 mb-150">
         <div class="container">
             <div class="row">
@@ -10,6 +31,10 @@
                         <img src="{{asset('storage/' .$getDB->gambar_buku)}}" alt="">
                     </div>
                 </div>
+                <input type="hidden" name="buku_id" value="{{$getDB->id}}">
+                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                <input type="hidden" name="penjual_id" value="{{$getDB->id_penjual}}">
+
                 <div class="col-md-7">
                     <div class="single-product-content">
                         <h3>{{$getDB->nama_buku}}</h3>
@@ -18,9 +43,9 @@
                         <br>
                         <div class="single-product-form">
                             <form action="index.html">
-                                <input type="number" placeholder="0">
+                                <input type="number" name="quantity" placeholder="0">
                             </form>
-                            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <button class="cart-btn" type="submit" onclick="return confirm('Yakin Ingin Membeli Buku Ini?')"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                             <p><strong>Categories: </strong>{{$getDB->category->nama_category}}</p>
                             <p><strong>Nama Toko: </strong>{{$getDB->penjual->nama_toko}}</p>
                         </div>
@@ -36,6 +61,7 @@
             </div>
         </div>
     </div>
+</form>
 
     <div class="more-products mb-150">
         <div class="container">

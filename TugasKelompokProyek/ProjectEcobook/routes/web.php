@@ -11,6 +11,7 @@ use App\Http\Controllers\PenjualLoginController;
 use App\Http\Controllers\NextRegisterPenjualController;
 use App\Http\Controllers\CrudBukuController;
 use App\Http\Controllers\LatihanPaymentController;
+use App\Http\Controllers\KeranjangUserController;
 use App\Models\Buku;
 use App\Models\Penjual;
 use App\Models\Category;
@@ -78,7 +79,10 @@ Route::get('/register-user', [UserLoginController::class, 'homeRegister']);
 Route::post('/register-user', [UserLoginController::class, 'prosesRegister'])->name('user.registerUser'); 
 Route::get('/home/user/product/buku/{id}', [ProdukBukuController::class, 'getBuku'])->name('user.getProductBuku')->middleware('auth');
 Route::get('/home/user/product/allBuku', [ProdukBukuController::class, 'productAll'])->name('user.getAllBuku')->middleware('auth');
-Route::get('/home/user/keranjang', [ProdukBukuController::class, 'test'])->name('user.keranjangUser')->middleware('auth');
+Route::get('/home/user/product/allBuku/cate/{id}', [ProdukBukuController::class, 'showByCate'])->name('allBuku.cate')->middleware('auth');
+Route::post('/home/user/product/allBuku/store', [ProdukBukuController::class, 'storeToKeranjang'])->name('store.keranjang')->middleware('auth');
+Route::get('/home/user/keranjang', [KeranjangUserController::class, 'indexKeranjang'])->name('user.keranjangUser')->middleware('auth');
+Route::delete('/home/user/keranjang/delete/{id}', [KeranjangUserController::class, 'deleteKeranjang'])->name('keranjangUser.delete')->middleware('auth');
 
 // Penjual
 Route::get('/home/penjual', [PenjualLoginController::class, 'homePenjual'])->name('penjual.indexPenjual')->middleware('auth:webpenjual');
